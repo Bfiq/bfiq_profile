@@ -5,9 +5,10 @@ import {NavigationBar} from '../Navbar/NavigationBar';
 function Header() {
   return (
     <React.Fragment>
-      <header>
+      <header id='top'>
         <NavigationBar/>
-        <p>Hola, soy Brian Fiquitiva, desarrollador web</p>
+        <h3>Hola, soy Brian Fiquitiva,<br/>
+           desarrollador web</h3>
       </header>
     </React.Fragment>
   );

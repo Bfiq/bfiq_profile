@@ -1,17 +1,22 @@
 import React from "react"
 import '../Navbar/Navbar.css'
 import {useState} from "react"
-//import {Link} from 'react-router-dom';
+import logo from "../../images/imagebfiq.png"
+import { Link, animateScroll as scroll } from "react-scroll";
 
 function NavigationBar(){
     const [isNavExpanded, setIsNavExpanded] = useState(false);
 
+    const scrollToTop1 = () => {
+        scroll.scrollToTop();
+    };
+
     return (
         <React.Fragment>
-            <nav className="navigation">
-                <a href="/" className="brand-name">
-                    Bfiq
-                </a>
+            <nav className="navigation fixed">
+                <Link to="top" className="brand-name active" onClick={scrollToTop1}>
+                    <img src={logo} height="150px"/>
+                </Link>
                 <button className="hamburger" onClick={() => {
                         setIsNavExpanded(!isNavExpanded)
                     }}>
@@ -22,16 +27,13 @@ function NavigationBar(){
                 <div className={isNavExpanded ? "navigation-menu expanded" : "navigation-menu"}>
                     <ul>
                     <li>
-                        <a href="/home">Inicio</a>
+                        <Link to="aboutme">Sobre Mi</Link>
                     </li>
                     <li>
-                        <a href="/about">Sobre Mi</a>
+                        <Link to="knowledge">Conocimientos</Link>
                     </li>
                     <li>
-                        <a href="/expertise">Conocimientos</a>
-                    </li>
-                    <li>
-                        <a href="/contact">Contactame</a>
+                        <Link to="projects">Proyectos</Link>
                     </li>
                     </ul>
                 </div>
